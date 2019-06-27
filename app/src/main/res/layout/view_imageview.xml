@@ -3,5 +3,7 @@
            android:id="@+id/iv_social"
            android:layout_width="45dp"
            android:layout_height="45dp"
-           android:padding="5dp"
+           android:paddingTop="5dp"
+           android:paddingStart="5dp"
+           android:paddingEnd="5dp"
            android:contentDescription="@string/social_website"/>

@@ -21,13 +21,13 @@ import com.nurda.rahmetapp.model.*
 import com.nurda.rahmetapp.presenter.Presenter
 import com.nurda.rahmetapp.utils.MarginItemDecoration
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.layout_address.*
 import kotlinx.android.synthetic.main.layout_contacts.*
 import kotlinx.android.synthetic.main.layout_description.*
 import kotlinx.android.synthetic.main.layout_partner.*
 import kotlinx.android.synthetic.main.layout_rejime.*
 import kotlinx.android.synthetic.main.layout_tags.*
-import kotlinx.android.synthetic.main.layout_toolbar.*
 
 class MainActivity : AppCompatActivity(), IView {
     private val TAG = "MainActivity"
@@ -90,7 +90,7 @@ class MainActivity : AppCompatActivity(), IView {
 
     @SuppressLint("SetTextI18n")
     override fun onCashbackLoad(cashback: CashbackAccount) {
-        tv_cashback.text = resources.getString(R.string.cashback) + "${cashback.id} %"
+        tv_cashback.text = resources.getString(R.string.cashback) + " ${cashback.id} %"
     }
 
     @SuppressLint("SetTextI18n")
@@ -100,7 +100,7 @@ class MainActivity : AppCompatActivity(), IView {
             tv_rejim_status.text = resources.getString(R.string.opened)
             tv_rejim_status.setTextColor(resources.getColor(R.color.dark_green))
         } else {
-            tv_rejim_status.text = resources.getString(R.string.opened)
+            tv_rejim_status.text = resources.getString(R.string.closed)
             tv_rejim_status.setTextColor(resources.getColor(R.color.red))
         }
     }
@@ -117,5 +117,9 @@ class MainActivity : AppCompatActivity(), IView {
 
         recycler_view_social.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         recycler_view_social.adapter = SocialSitesAdapter(socialSites)
+    }
+
+    override fun onRatingLoad(rating: Rating) {
+        btn_rating.text = rating.mark.toString()
     }
 }

@@ -12,4 +12,5 @@ interface IView {
     fun setAddress(address: Address)
     fun onRegimeLoad(regime: Regime)
     fun onSocialSitesLoad(socialNetworks: Map<String,String>)
+    fun onRatingLoad(rating: Rating)
 }

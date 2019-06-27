@@ -22,6 +22,7 @@ class Presenter(context: Context) {
                 }
 
                 override fun onResponse(call: Call<RahmetResponse>, response: Response<RahmetResponse>) {
+                    rahmetView.onRatingLoad(response.body()!!.data.rating)
                     rahmetView.setAddress(response.body()!!.data.address)
                     rahmetView.onPicturesLoad(response.body()!!.data.images)
                     rahmetView.onHashtagsLoad(response.body()!!.data.hashtags)
@@ -34,6 +35,7 @@ class Presenter(context: Context) {
 
 
                     rahmetView.onSocialSitesLoad(response.body()!!.data.partner.social_networks)
+
                 }
 
             })
