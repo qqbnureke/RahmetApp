@@ -20,6 +20,7 @@ import com.nurda.rahmetapp.adapter.ViewPagerAdapter
 import com.nurda.rahmetapp.model.*
 import com.nurda.rahmetapp.presenter.Presenter
 import com.nurda.rahmetapp.utils.MarginItemDecoration
+import com.nurda.rahmetapp.utils.ProgressDialogHelper
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.layout_address.*
@@ -31,12 +32,25 @@ import kotlinx.android.synthetic.main.layout_tags.*
 
 class MainActivity : AppCompatActivity(), IView {
     private val TAG = "MainActivity"
+    private var progressDialogHelper: ProgressDialogHelper? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        progressDialogHelper = ProgressDialogHelper(this)
 
-        Presenter(this).getDataFromApi(115)
+        Presenter(this).requestDataFromApi(115)
+    }
+
+    override fun showProgress() {
+        Log.d(TAG, "showProgress: ")
+        progressDialogHelper?.show()
+    }
+
+
+    override fun hideProgress() {
+        Log.d(TAG, "hideProgress: ")
+        progressDialogHelper?.dismiss()
     }
 
     override fun onDataErrorFromApi(error: String) {
@@ -46,7 +60,7 @@ class MainActivity : AppCompatActivity(), IView {
 
     override fun setAddress(address: Address) {
         tv_address.text = address.address
-        tv_address.setOnClickListener {
+        layout_address.setOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("geo:${address.coordLat},${address.coordLng}")))
         }
     }
@@ -81,8 +95,7 @@ class MainActivity : AppCompatActivity(), IView {
 
         tv_website.text = partner.website_url
         tv_website.setOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(partner.website_url))
-            startActivity(intent)
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(partner.website_url)))
         }
 
         tv_partners_count.text = partner.filials.size.toString()
@@ -105,21 +118,14 @@ class MainActivity : AppCompatActivity(), IView {
         }
     }
 
-    override fun onSocialSitesLoad(socialNetworks: Map<String, String>) {
-        val socialSites = ArrayList<Int>()
-        for (network in socialNetworks.keys) {
-            when (network) {
-                "fb" -> socialSites.add(R.drawable.logo_facebook)
-                "ins" -> socialSites.add(R.drawable.logo_instagram)
-                "vk" -> socialSites.add(R.drawable.logo_vk)
-            }
-        }
-
+    override fun onSocialSitesLoad(socialNetworks: List<Social>) {
         recycler_view_social.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        recycler_view_social.adapter = SocialSitesAdapter(socialSites)
+        recycler_view_social.adapter = SocialSitesAdapter(socialNetworks)
     }
 
     override fun onRatingLoad(rating: Rating) {
         btn_rating.text = rating.mark.toString()
     }
+
+
 }

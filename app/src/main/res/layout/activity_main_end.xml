@@ -12,30 +12,32 @@
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="parent"
         android:layout_marginBottom="10dp"
-        />
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/backButton"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
+        android:contentDescription="@string/todo"
         android:src="@drawable/ic_arrow_back"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/backButton_red"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:visibility="visible"
+        android:contentDescription="@string/todo"
         android:src="@drawable/ic_arrow_back_red"
+        android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -43,8 +45,8 @@
         android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:visibility="invisible"
         android:background="@drawable/view_background"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@id/toolbarDivider"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -54,12 +56,10 @@
         android:layout_height="36dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-
-        android:visibility="invisible"
         android:background="@drawable/round_button"
-        android:text="4.0"
         android:textColor="@color/white"
-        app:layout_constraintStart_toEndOf="@id/backButton"
+        android:visibility="invisible"
+        app:layout_constraintStart_toEndOf="@id/backButton_red"
         app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -69,17 +69,15 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:text="Rumi"
         android:textColor="#000"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@id/backButton"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_cashback"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Кэшбэк 20%"
         android:textColor="#417505"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@id/tv_name"
@@ -93,7 +91,6 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="5dp"
-        android:src="@drawable/rumi_logo"
         app:layout_constraintBottom_toTopOf="@id/toolbarDivider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -112,17 +109,15 @@
         android:id="@+id/scrollview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/toolbarDivider"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:paddingBottom="90dp"
-        >
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarDivider">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
 
             <include layout="@layout/layout_address" />
 

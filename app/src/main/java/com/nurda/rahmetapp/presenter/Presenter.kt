@@ -4,21 +4,30 @@ import android.content.Context
 import com.nurda.rahmetapp.api.RetrofitService
 import com.nurda.rahmetapp.model.Address
 import com.nurda.rahmetapp.model.RahmetResponse
+import com.nurda.rahmetapp.model.Social
 import com.nurda.rahmetapp.view.IView
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.util.*
 
-class Presenter(context: Context) {
+class Presenter(context: Context) :IPresenter{
+    override fun onDestroy() {
+
+    }
+
     val rahmetView = context as IView
 
-    fun getDataFromApi(id: Int) {
+    override fun requestDataFromApi(id: Int) {
+        rahmetView.showProgress()
+
         RetrofitService.create()
             .getFilial(id)
             .enqueue(object : Callback<RahmetResponse> {
+
                 override fun onFailure(call: Call<RahmetResponse>, t: Throwable) {
                     rahmetView.onDataErrorFromApi(t.localizedMessage)
+                    rahmetView.hideProgress()
                 }
 
                 override fun onResponse(call: Call<RahmetResponse>, response: Response<RahmetResponse>) {
@@ -34,8 +43,14 @@ class Presenter(context: Context) {
                     rahmetView.onRegimeLoad(response.body()!!.data.regime[day])
 
 
-                    rahmetView.onSocialSitesLoad(response.body()!!.data.partner.social_networks)
+                    val socialNetworks = response.body()!!.data.partner.social_networks
+                    val socialSites = ArrayList<Social>()
+                    for (network in socialNetworks.keys) {
+                        socialSites.add(Social(network, socialNetworks.getValue(network)))
+                    }
+                    rahmetView.onSocialSitesLoad(socialSites)
 
+                    rahmetView.hideProgress()
                 }
 
             })

@@ -11,6 +11,9 @@ interface IView {
     fun onCashbackLoad(cashback: CashbackAccount)
     fun setAddress(address: Address)
     fun onRegimeLoad(regime: Regime)
-    fun onSocialSitesLoad(socialNetworks: Map<String,String>)
+    fun onSocialSitesLoad(socialNetworks: List<Social>)
     fun onRatingLoad(rating: Rating)
+
+    fun showProgress()
+    fun hideProgress()
 }
