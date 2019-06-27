@@ -7,6 +7,6 @@ data class Partner(
     val id: Int,
     val logotype_url: String,
     val name: String,
-    val social_networks: SocialNetworks,
+    val social_networks: Map<String,String>,
     val website_url: String
 )

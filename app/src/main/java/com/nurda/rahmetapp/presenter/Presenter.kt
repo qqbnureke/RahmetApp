@@ -8,6 +8,7 @@ import com.nurda.rahmetapp.view.IView
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.*
 
 class Presenter(context: Context) {
     val rahmetView = context as IView
@@ -22,6 +23,17 @@ class Presenter(context: Context) {
 
                 override fun onResponse(call: Call<RahmetResponse>, response: Response<RahmetResponse>) {
                     rahmetView.setAddress(response.body()!!.data.address)
+                    rahmetView.onPicturesLoad(response.body()!!.data.images)
+                    rahmetView.onHashtagsLoad(response.body()!!.data.hashtags)
+                    rahmetView.onPhonesLoad(response.body()!!.data.phones)
+                    rahmetView.onPartnerLoad(response.body()!!.data.partner)
+                    rahmetView.onCashbackLoad(response.body()!!.data.rule.cashback_account)
+
+                    val day = Calendar.getInstance().get(Calendar.DAY_OF_WEEK)
+                    rahmetView.onRegimeLoad(response.body()!!.data.regime[day])
+
+
+                    rahmetView.onSocialSitesLoad(response.body()!!.data.partner.social_networks)
                 }
 
             })

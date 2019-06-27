@@ -8,8 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import com.nurda.rahmetapp.R
+import com.squareup.picasso.Picasso
 
-class ViewPagerAdapter(private val context: Context, val imageList : ArrayList<Int>) : PagerAdapter(){
+class ViewPagerAdapter(private val context: Context, val imageList : List<String>) : PagerAdapter(){
 
     private var layoutInflater : LayoutInflater ?= null
 
@@ -25,7 +26,8 @@ class ViewPagerAdapter(private val context: Context, val imageList : ArrayList<I
         layoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val v = layoutInflater!!.inflate(R.layout.layout_imageview, null)
         val image = v.findViewById<View>(R.id.iv_images) as ImageView
-        image.setImageResource(imageList[position])
+        Picasso.get().load(imageList[position]).into(image)
+        //image.setImageResource(imageList[position])
 
         val vp = container as ViewPager
         vp.addView(v, 0)

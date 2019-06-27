@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import com.nurda.rahmetapp.R
 import kotlinx.android.synthetic.main.view_textview.view.*
 
-class PhonesAdapter(val phoneList: ArrayList<String>) : RecyclerView.Adapter<PhoneViewHolder>() {
+class PhonesAdapter(val phoneList: List<String>) : RecyclerView.Adapter<PhoneViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): PhoneViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.view_textview, parent, false)

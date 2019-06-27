@@ -18,6 +18,9 @@
         точке.\r\nCредняя порция первых и вторых блюд — 450 г.\r\nCтаж шеф-повара — 30 лет.\r\nCредний чек — 2 000
         тенге.
     </string>
+    <string name="opened">Открыто</string>
+    <string name="closed">Закрыто</string>
+    <string name="cashback">Кэшбэк</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
