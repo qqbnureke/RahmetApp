@@ -1,6 +1,6 @@
 package com.nurda.rahmetapp.model
 
 data class Rating(
-    val count: Int,
+    val count: Double,
     val mark: Int
 )
