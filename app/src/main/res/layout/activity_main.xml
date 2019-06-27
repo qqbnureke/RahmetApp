@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        tools:context=".MainActivity">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <include layout="@layout/layout_toolbar"/>
+
+        <include layout="@layout/layout_address"/>
+
+        <include layout="@layout/horizontal_divider"/>
+
+        <include layout="@layout/layout_description"/>
+
+        <include layout="@layout/horizontal_divider"/>
+
+        <include layout="@layout/layout_rejime"/>
+
+        <include layout="@layout/horizontal_divider"/>
+
+        <include layout="@layout/layout_partner"/>
+
+        <include layout="@layout/horizontal_divider"/>
+
+        <include layout="@layout/layout_tags"/>
+
+        <include layout="@layout/horizontal_divider"/>
+
+        <include layout="@layout/layout_contacts"/>
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

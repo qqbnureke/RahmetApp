@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:orientation="vertical">
+
+    <TextView
+            android:id="@+id/contacts_label"
+            android:text="@string/contacts"
+            style="@style/labels"
+    />
+
+    <TextView
+            android:id="@+id/phone_label"
+            style="@style/subtitles"
+            android:text="@string/phone"
+    />
+
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view_contacts"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <TextView
+            android:id="@+id/website_label"
+            style="@style/subtitles"
+            android:text="@string/website"
+    />
+
+    <TextView
+            android:id="@+id/tv_website"
+            style="@style/subtitles"
+            android:layout_marginTop="-10dp"
+            android:textColor="@color/black"
+    />
+
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view_social"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            tools:listitem="@layout/view_imageview"/>
+
+</LinearLayout>

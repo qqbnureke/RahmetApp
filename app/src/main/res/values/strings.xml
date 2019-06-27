@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">RahmetApp</string>
+    <string name="tags">Теги</string>
+    <string name="contacts">Контакты</string>
+    <string name="phone">Телефон</string>
+    <string name="website">Сайт</string>
+    <string name="social_website">social website</string>
+    <string name="address">Адрес</string>
+    <string name="map">map</string>
+    <string name="description">Описание</string>
+    <string name="rejime">Режим работы</string>
+    <string name="partners">Филиалы</string>
+    <string name="todo">TODO</string>
+    <string name="description_text">
+        RUMI — сеть центров плова и казахского гостеприимства. Наше главное блюдо – плов. Также для наших гостей мы
+        готовим блюда любимой восточной кухни по вкусным ценам в приятном современном интерьере, с быстрым вежливым
+        обслуживанием, основанном на традициях казахского абсолютного гостеприимства.\r\n300 посадочных мест в каждой
+        точке.\r\nCредняя порция первых и вторых блюд — 450 г.\r\nCтаж шеф-повара — 30 лет.\r\nCредний чек — 2 000
+        тенге.
+    </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
